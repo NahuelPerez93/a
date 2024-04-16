@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -18,9 +17,20 @@
         </div>
         <div class="expenses-section">
             <h2>Gastos</h2>
-            <label for="expensas">Expensas:</label>
-            <input type="number" id="expensas">
-            <!-- Agrega más campos para otros gastos aquí -->
+            <label for="gastos">Seleccione el tipo de gasto:</label>
+            <select id="gastos">
+                <option value="expensas">Expensas</option>
+                <option value="agua">Agua</option>
+                <option value="luz">Luz</option>
+                <option value="gas">Gas</option>
+                <option value="comida">Comida</option>
+                <option value="internet">Internet</option>
+                <!-- Agrega más opciones para otros gastos aquí -->
+            </select>
+            <label for="amount">Monto:</label>
+            <input type="number" id="amount">
+            <button onclick="agregarGasto()">Agregar Gasto</button>
+            <div id="gastos-list"></div>
         </div>
         <button onclick="calcularGastos()">Calcular</button>
         <div id="results"></div>
