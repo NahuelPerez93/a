@@ -30,3 +30,15 @@ button:hover {
 #results {
     margin-top: 20px;
 }
+
+#gastos-list {
+    margin-top: 10px;
+}
+
+#gastos-list h3 {
+    margin-bottom: 5px;
+}
+
+#gastos-list p {
+    margin: 5px 0;
+}
