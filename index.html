@@ -1,1 +1,30 @@
-<h1> hola </h1>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora de Gastos</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="calculator">
+        <h1>Calculadora de Gastos del Hogar</h1>
+        <div class="input-section">
+            <label for="nahuel-salary">Sueldo de Nahuel:</label>
+            <input type="number" id="nahuel-salary">
+            <label for="carolina-salary">Sueldo de Carolina:</label>
+            <input type="number" id="carolina-salary">
+        </div>
+        <div class="expenses-section">
+            <h2>Gastos</h2>
+            <label for="expensas">Expensas:</label>
+            <input type="number" id="expensas">
+            <!-- Agrega más campos para otros gastos aquí -->
+        </div>
+        <button onclick="calcularGastos()">Calcular</button>
+        <div id="results"></div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
