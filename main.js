@@ -1,14 +1,21 @@
 var gastos = {};
+var cuentas = {
+    "nahuel": 0,
+    "carolina": 0
+};
 
 function agregarGasto() {
     var tipoGasto = document.getElementById("gastos").value;
     var monto = parseFloat(document.getElementById("amount").value);
+    var quienPago = document.getElementById("pago").value;
+    
     if (!isNaN(monto)) {
         if (tipoGasto in gastos) {
             gastos[tipoGasto] += monto;
         } else {
             gastos[tipoGasto] = monto;
         }
+        cuentas[quienPago] += monto; // Añadir el monto al que pagó
         actualizarListaGastos();
     } else {
         alert("Por favor, ingrese un monto válido.");
@@ -46,8 +53,14 @@ function calcularGastos() {
     resultsDiv.innerHTML += "<p>Porcentaje de gastos de Nahuel: $" + porcentajeNahuel.toFixed(2) + "</p>";
     resultsDiv.innerHTML += "<p>Porcentaje de gastos de Carolina: $" + porcentajeCarolina.toFixed(2) + "</p>";
 
+    // Calcular las deudas y pagos
     var deudaNahuel = porcentajeCarolina - porcentajeNahuel;
     var deudaCarolina = porcentajeNahuel - porcentajeCarolina;
+
+    // Restar los pagos acumulados
+    deudaNahuel -= cuentas.nahuel;
+    deudaCarolina -= cuentas.carolina;
+
     resultsDiv.innerHTML += "<p>Carolina le debe a Nahuel: $" + deudaNahuel.toFixed(2) + "</p>";
     resultsDiv.innerHTML += "<p>Nahuel le debe a Carolina: $" + deudaCarolina.toFixed(2) + "</p>";
 }
